@@ -155,3 +155,37 @@ $conn->close();
 
 </body>
 </html>
+```
+
+##1. Database and Table Setup
+Upon loading, the script checks if the auth_system database and the users table exist. If not, they are automatically created.
+The users table consists of the following fields:
+id: The primary key, auto-incremented.
+username: A unique identifier for the user.
+password: The hashed password.
+email: The user's email.
+created_at: A timestamp for the account creation.
+##2. Login Functionality
+The user enters their username and password in the login form.
+When the form is submitted, the system checks the database for a matching username.
+If a match is found, it uses password_verify to compare the entered password with the hashed password stored in the database.
+If the credentials are valid, the user is redirected to a dashboard page (you can create this separately as dashboard.php).
+##3. Signup Functionality
+The user enters a username, email, and password in the signup form.
+The password is hashed using password_hash() before storing it in the database.
+After successful registration, a success message is displayed and the user can log in.
+##4. Form Toggling
+The login and signup forms are in the same page, and a JavaScript function allows the user to toggle between them.
+When the user clicks on the "Don't have an account? Sign Up" or "Already have an account? Log In" link, the appropriate form is displayed.
+
+##Features
+User Authentication: Provides login and signup functionality.
+Database Setup: Automatically creates the database and table if they don't exist.
+Password Security: Passwords are securely hashed using PHP’s password_hash() and password_verify().
+Responsive Design: Simple and clean UI with a form toggle.
+
+##Requirements
+PHP 7.0 or higher
+MySQL
+
+
